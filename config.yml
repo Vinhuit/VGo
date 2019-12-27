@@ -1,0 +1,32 @@
+kind: Ssh
+apiVersion: v1
+metadata:
+spec:
+  Lab:
+    -   
+      name: AAA
+      user: vgo
+      password: vgovgo
+    -
+      name: BBB
+      user: vgovgo
+      password: vgovgovgo
+    -
+  Tunnel:
+    -
+      user: vgo
+      hostname: 127.0.0.1
+---
+kind: Scp
+apiVersion: v1
+metadata:
+  name: echo-service
+spec:
+  selector:
+    app: echo
+    org: test
+  ports:
+  - name: echo-first
+    port: 8080
+  - name: echo-second
+    port: 8081
